@@ -1,0 +1,342 @@
+Online Project Management System
+
+
+1. Introduction
+2.Purpose
+3.Scope
+
+Functional Requirements
+1 User Management
+2 Project Creation and Management
+3 Task Management
+4 Collaboration and Communication
+5 Project Tracking and Reporting
+6 Document Management
+
+Non Functional Requirements
+1 Security
+2 Performance
+3 User Interface
+
+
+Conclusion
+
+Tale: Project Management
+
+User Table:
+user_id: Primary Key
+username: Unique, Not Null
+password: Not Null
+email: Unique, Not Null
+role: Not Null
+
+Project Table:
+project_id: Primary Key
+project_name: Not Null
+start_date: Not Null
+end_date: Not Null
+description: Not Null
+
+Task Table:
+task_id: Primary Key
+project_id: Foreign Key referencing Project Table
+task_name: Not Null
+assigned_to: Foreign Key referencing User Table
+due_date: Not Null
+
+
+
+Software Requirements Specification (SRS) for Farmers' Web Application
+1. Introduction
+2 Scope
+3 Stakeholders
+
+2. System Overview
+1 Functionalities
+2 System Interfaces
+
+3. System Requirements
+
+3.1 Functional Requirements
+a) User Registration and Login
+
+
+b) Dashboard
+
+
+c) Market Information
+
+
+d) Crop Management
+
+
+e) Weather Forecast
+
+
+f) Financial Support
+
+g) Community Forum
+
+
+3.2 Non-Functional Requirements
+a) Performance
+
+
+b) Security
+
+
+c) Usability
+
+
+4. Cunclusion
+
+
+Tables:
+
+User Table:
+user_id (Primary Key, Integer)
+username (VARCHAR(20), Unique, Not Null)
+password (VARCHAR(20), Not Null)
+email (VARCHAR(50), Unique, Not Null)
+role (VARCHAR(20), Not Null)
+
+Farmer Table:
+farmer_id (Primary Key, Integer)
+user_id (Foreign Key referencing User Table)
+full_name (VARCHAR(50), Not Null)
+address (VARCHAR(100))
+phone_number (VARCHAR(20))
+
+Crop Table:
+crop_id (Primary Key, Integer)
+crop_name (VARCHAR(50), Not Null)
+crop_description (VARCHAR(255))
+
+MarketPrice Table:
+price_id (Primary Key, Integer)
+crop_id (Foreign Key referencing Crop Table)
+price_date (Date, Not Null)
+market_price (Decimal, Not Null)
+
+Weather Table:
+weather_id (Primary Key, Integer)
+location (VARCHAR(50), Not Null)
+weather_date (Date, Not Null)
+temperature (Decimal, Not Null)
+humidity (Decimal, Not Null)
+rainfall (Decimal, Not Null)
+
+FinancialSupport Table:
+support_id (Primary Key, Integer)
+support_name (VARCHAR(50), Not Null)
+support_description (VARCHAR(255))
+
+ForumPost Table:
+post_id (Primary Key, Integer)
+user_id (Foreign Key referencing User Table)
+post_date (Date, Not Null)
+post_title (VARCHAR(100), Not Null)
+post_content (VARCHAR(1000), Not Null)
+
+Comment Table:
+comment_id (Primary Key, Integer)
+post_id (Foreign Key referencing ForumPost Table)
+user_id (Foreign Key referencing User Table)
+comment_date (Date, Not Null)
+comment_content (VARCHAR(500), Not Null)
+
+
+Online Ticket Reservation System
+1. Introduction
+
+
+
+2. Scope
+
+3. Functional Requirements
+
+3.1 User Registration and Authentication
+
+3.2 Event Management
+
+3.3 Event Search and Browsing
+
+3.4 Seat Selection and Reservation
+
+3.5 Ticket Purchase
+
+3.6 Booking Confirmation
+
+
+4. Non-Functional Requirements
+4.1 Performance
+
+4.2 Security
+
+4.3 User-Friendly Interface
+
+
+4.4 Availability and Reliability
+
+
+5. Constraints
+5.1 Technology Constraints
+
+
+6. Assumptions and Dependencies
+6.1 Assumptions
+
+
+6.2 Dependencies
+
+
+Customer Table:
+customer_id (Primary Key)
+first_name
+last_name
+email
+phone_number
+address
+
+Event Table:
+event_id (Primary Key)
+event_name
+event_date
+event_time
+location
+description
+
+Reservation Table:
+reservation_id (Primary Key)
+customer_id (Foreign Key referencing Customer Table)
+event_id (Foreign Key referencing Event Table)
+reservation_date
+total_tickets
+
+Ticket Table:
+ticket_id (Primary Key)
+event_id (Foreign Key referencing Event Table)
+seat_number
+price
+
+Payment Table:
+payment_id (Primary Key)
+reservation_id (Foreign Key referencing Reservation Table)
+payment_date
+amount
+
+
+
+Employee Recruitment System
+1. Introduction
+
+
+2. Functional Requirements
+
+2.1 User Registration and Authentication
+
+
+2.2 Job Posting
+
+
+2.3 Job Search and Filtering
+
+
+2.4 Application Submission
+
+
+2.5 Applicant Tracking
+
+
+2.6 Interview Scheduling
+
+
+2.7 Communication and Collaboration
+
+
+2.8 Reporting and Analytics
+
+
+2.9 System Administration
+
+
+2.10 Integration
+
+
+3. Non-Functional Requirements
+
+3.1 Security
+
+
+3.2 Performance
+
+
+3.3 User Interface
+
+
+3.4 Documentation
+
+
+4. Conclusion
+
+
+Tables:
+
+Candidate Table:
+candidate_id (Integer, Primary Key)
+first_name (VARCHAR(20), Not Null)
+last_name (VARCHAR(20), Not Null)
+email (VARCHAR(20), Unique, Not Null)
+phone_number (VARCHAR(20))
+address (VARCHAR(255))
+experience_id (Foreign Key referencing Experience Table)
+education_id (Foreign Key referencing Education Table)
+
+Job Posting Table:
+job_id (Integer, Primary Key)
+job_title (VARCHAR(20), Not Null)
+company_name (VARCHAR(20), Not Null)
+location_id (Foreign Key referencing Location Table)
+description (VARCHAR(255), Not Null)
+requirements (VARCHAR(255), Not Null)
+application_deadline (Date, Not Null)
+
+Application Table:
+application_id (Integer, Primary Key)
+job_id (Integer, Foreign Key referencing Job Posting Table)
+candidate_id (Integer, Foreign Key referencing Candidate Table)
+application_date (Date, Not Null)
+status (VARCHAR(20), Not Null)
+
+Interview Table:
+interview_id (Integer, Primary Key)
+job_id (Integer, Foreign Key referencing Job Posting Table)
+candidate_id (Integer, Foreign Key referencing Candidate Table)
+interview_date (Date, Not Null)
+interview_location (VARCHAR(255))
+interviewer (VARCHAR(20))
+status (VARCHAR(20), Not Null)
+
+User Table:
+user_id (Integer, Primary Key)
+username (VARCHAR(20), Unique, Not Null)
+password (VARCHAR(20), Not Null)
+email (VARCHAR(20), Unique, Not Null)
+role_id (Foreign Key referencing Role Table)
+
+Experience Table:
+experience_id (Integer, Primary Key)
+experience_description (VARCHAR(255))
+
+Education Table:
+education_id (Integer, Primary Key)
+education_description (VARCHAR(255))
+
+Location Table:
+location_id (Integer, Primary Key)
+location_name (VARCHAR(20))
+
+Role Table:
+role_id (Integer, Primary Key)
+role_name (VARCHAR(20))
+
